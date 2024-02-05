@@ -1,5 +1,3 @@
-
-// import axios from 'axios';
 import './App.css';
 import {useReducer,} from 'react'
 import { PiPlusBold } from "react-icons/pi";
@@ -23,7 +21,7 @@ const changeFunc=(e)=>{
 
   return (
     <div className="App">
-   
+    <h1>TODO LİST</h1>
    <div>
       <input type='text'placeholder='todo giriniz' onChange={changeFunc} value={state.todo}></input>
      <button onClick={clickFunc} disabled={!state.todo} className='btn'><PiPlusBold></PiPlusBold></button>
@@ -33,6 +31,5 @@ const changeFunc=(e)=>{
   );
   }
 export default App;
-
 
 
