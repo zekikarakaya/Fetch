@@ -1,23 +1,31 @@
+import React, { useReducer } from 'react'
 import { Routes, Route } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Gidilmişler from "./pages/Gidilmişler";
-import Gidilecekler from "./pages/Gidilecekler";
-
+import Navbar from "./pages/Navbar";
+import ToGoCountry from "./pages/ToGoCountry";
+import GoneCountry from "./pages/GoneCountry";
+import MainPage from "./pages/MainPage";
+import { MainContext } from "./context/context";
+import reducer, { initialState } from "./context/reducer";
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const allData={
+    state,
+    dispatch,
+  };
   return (
     <div className="App">
-      
-      <Navbar></Navbar>
-      <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/Gidilecekler" element={<Gidilecekler />} />
-        <Route path="/Gidilmişler" element={<Gidilmişler />} />
-      </Routes>
+      <MainContext.Provider value={allData}>
+         <Navbar></Navbar>
+        <Routes>
+        <Route path="/ToGoCountry" element={<ToGoCountry></ToGoCountry>}></Route>
+        <Route path="/" element={<MainPage></MainPage>}></Route>
+        <Route path="/GoneCountry" element={<GoneCountry></GoneCountry>}></Route>
+       </Routes>
+      </MainContext.Provider>
+     
     </div>
   );
 }
 
 export default App;
+

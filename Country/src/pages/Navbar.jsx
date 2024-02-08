@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div className='navbar1'>
-        <Link to="/Gidilecekler">Gidilecekler</Link>
-        <Link to="/">Anasayfaya Geri Dön</Link>
-        <Link to="/Gidilmişler">Gidilmişler</Link>
+        <Link to="/ToGoCountry">To Go Country List</Link>
+        <Link to="/">Ana Sayfaya Dön</Link>
+        <Link to="/GoneCountry">Gone Country List</Link>
     </div>
   )
 }
